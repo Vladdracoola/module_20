@@ -1,0 +1,30 @@
+{% extends 'menu.html' %}
+
+{% block pagename %}
+    <h1>Авторизация</h1>
+{% endblock %}
+
+{% block content %}
+    {% if info.error %}
+        <div class="error-message" style="color: red; margin-bottom: 10px;">
+            {{ info.error }}
+        </div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Введите логин</label>
+            <input type="text" id="username" name="username" maxlength="30" required
+                   value="{{ info.username|default:'' }}">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Введите пароль</label>
+            <input type="password" id="password" name="password" minlength="8" required
+                   value="{{ info.password|default:'' }}">
+        </div>
+
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit">Отправить</button>
+    </form>
+{% endblock %}

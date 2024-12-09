@@ -1,0 +1,83 @@
+body {
+    background-image: url('/static/wallper.jpg'); /* Указываем путь к картинке */
+    background-repeat: no-repeat; /* Чтобы картинка не повторялась */
+    background-size: cover; /* Масштабируем картинку по размеру экрана */
+    background-attachment: fixed; /* Фиксируем фон */
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px
+}
+
+.menu-link {
+    font-size: 36px; /* Размер текста ссылки */
+    font-weight: bold; /* Жирность текста */
+    color: #FFD700; /* Цвет текста */
+    text-decoration: none; /* Убрать подчёркивание */
+}
+
+.menu-link:hover {
+    color: #007BFF; /* Цвет при наведении */
+    text-decoration: underline; /* Подчёркивание при наведении */
+}
+
+.item {
+    font-size: 24px; /* Размер текста */
+    margin-bottom: 10px; /* Отступ между элементами */
+    display: flex; /* Для удобного размещения кнопки и текста */
+    align-items: center; /* Выравнивание по вертикали */
+}
+
+.item button {
+    margin-left: 10px; /* Отступ кнопки от текста */
+    font-size: 18px; /* Размер текста на кнопке */
+    padding: 5px 10px; /* Внутренние отступы кнопки */
+}
+
+.pagination {
+    color: black;
+    font-size: 24px;
+}
+
+a:link { color:   black;
+         font-size: 24px;}
+a:visited { color:  black;
+            font-size: 24px;}
+
+.post-item {
+    list-style-type: none; /* Убираем маркеры списка */
+    margin-bottom: 20px; /* Отступ между постами */
+    padding: 10px; /* Внутренние отступы */
+    background-color: rgba(255, 255, 255, 0.9); /* 50% прозрачности */
+    border: 1px solid #ddd; /* Тонкая граница вокруг */
+    border-radius: 8px; /* Скругленные углы */
+    width: 300px
+}
+
+.post-item h2 {
+    font-size: 24px; /* Размер заголовка */
+    color: #333; /* Цвет текста */
+    margin-bottom: 5px; /* Отступ между заголовком и текстом */
+}
+
+.post-content {
+    font-size: 18px; /* Размер текста поста */
+    line-height: 1.6; /* Межстрочный интервал */
+    color: #555; /* Цвет текста */
+}
+
+.post-date {
+    font-size: 14px; /* Размер даты */
+    color: #888; /* Бледный цвет для даты */
+    display: block; /* Дата на отдельной строке */
+    margin-top: 5px; /* Отступ сверху */
+}
+
+.custom-label {
+    font-size: 20px; /* Увеличиваем шрифт */
+    font-weight: bold; /* Жирный шрифт */
+    position: relative;
+    left: 0px
+}
+
