@@ -15,9 +15,13 @@
         {% block menu %}
         <ul>
             <li><a href="/" class="menu-link">Главная</a></li>
+            <li><a href="detection" class="menu-link">Распознавание изображения</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/logout/" class="menu-link">Выход пользователя</a></li>
+            {% else %}
             <li><a href="/registration/" class="menu-link">Регистрация</a></li>
-            <li><a href="/authorization/" class="menu-link">Авторизация</a></li>
-            <li><a href="/post/" class="menu-link">Новости</a></li>
+            <li><a href="/login/" class="menu-link">Авторизация</a></li>
+            {% endif %}
         </ul>
         {% endblock %}
     </nav>
@@ -25,6 +29,13 @@
     <main>
         {% block content %}
         <p>Мой сайт 2024</p>
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
         {% endblock %}
     </main>
 </body>

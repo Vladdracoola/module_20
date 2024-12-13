@@ -16,13 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from task1.views import main, about_post, sign_up, log_in
+from task1.views import main, sign_up, log_in, log_out, detection, delete_image, add_image, process_image_feed
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main),
     path('main/', main),
     path('registration/', sign_up),
-    path('authorization/', log_in),
-    path('post/', about_post)
-]
+    path('login/', log_in),
+    path('logout/', log_out),
+    path('detection/', detection, name='detection'),
+    path('process/<int:feed_id>/', process_image_feed, name='process_feed'),
+    path('image/delete/<int:image_id>/', delete_image, name='delete_image'),
+    path('add_image/', add_image, name='add_image'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

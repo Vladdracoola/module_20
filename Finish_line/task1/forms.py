@@ -1,4 +1,5 @@
 from django import forms
+from .models import ImageFeed
 
 
 class ContactForm(forms.Form):
@@ -11,3 +12,15 @@ class ContactForm(forms.Form):
 class LoginForm(forms.Form):
     username = forms.CharField(label='Имя пользователя', max_length=100)
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
+
+
+class ImageFeedForm(forms.ModelForm):
+    class Meta:
+        model = ImageFeed
+        fields = ['image']
+        widgets = {
+            'image': forms.FileInput(attrs={'accept': 'image/*'}),
+        }
+        help_texts = {
+            'image': 'Upload an image file.',
+        }
