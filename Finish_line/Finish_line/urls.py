@@ -16,17 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from task1.views import main, sign_up, log_in, log_out, detection, delete_image, add_image, process_image_feed
+from Detection_platform.views import main, sign_up, log_in, log_out, detection, delete_image, add_image, process_image_feed
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main),
-    path('main/', main),
-    path('registration/', sign_up),
-    path('login/', log_in),
-    path('logout/', log_out),
+    path('', main, name='main'),
+    path('registration/', sign_up, name='registration'),
+    path('login/', log_in, name='login'),
+    path('logout/', log_out, name='logout'),
     path('detection/', detection, name='detection'),
     path('process/<int:feed_id>/', process_image_feed, name='process_feed'),
     path('image/delete/<int:image_id>/', delete_image, name='delete_image'),

@@ -14,13 +14,13 @@
     <nav>
         {% block menu %}
         <ul>
-            <li><a href="/" class="menu-link">Главная</a></li>
-            <li><a href="detection" class="menu-link">Распознавание изображения</a></li>
+            <li><a href="{% url 'main' %}" class="menu-link">Главная</a></li>
+            <li><a href="{% url 'detection' %}" class="menu-link">Распознавание изображения</a></li>
             {% if user.is_authenticated %}
-            <li><a href="/logout/" class="menu-link">Выход пользователя</a></li>
+            <li><a href="{% url 'logout' %}" class="menu-link">Выход пользователя</a></li>
             {% else %}
-            <li><a href="/registration/" class="menu-link">Регистрация</a></li>
-            <li><a href="/login/" class="menu-link">Авторизация</a></li>
+            <li><a href="{% url 'registration' %}" class="menu-link">Регистрация</a></li>
+            <li><a href="{% url 'login' %}" class="menu-link">Авторизация</a></li>
             {% endif %}
         </ul>
         {% endblock %}
@@ -28,7 +28,10 @@
 
     <main>
         {% block content %}
-        <p>Мой сайт 2024</p>
+        <ul>
+        <li><p>На этом сайте можно распознать объекты на картинке с помощью ИИ.</p></li>
+        <li><p>Модель нейросети: MobileNet SSD</p></li>
+        </ul>
         {% if messages %}
     <ul class="messages">
         {% for message in messages %}
